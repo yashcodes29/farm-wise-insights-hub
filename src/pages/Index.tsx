@@ -1,13 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { MainLayout } from "@/components/layout/MainLayout";
+import { FarmProfileCard } from "@/components/dashboard/FarmProfileCard";
+import { WeatherForecast } from "@/components/dashboard/WeatherForecast";
+import { CropHealthMonitor } from "@/components/dashboard/CropHealthMonitor";
+import { ResourceManagement } from "@/components/dashboard/ResourceManagement";
+import { MarketPrices } from "@/components/dashboard/MarketPrices";
+import { CommunityForum } from "@/components/dashboard/CommunityForum";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainLayout>
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-farm-leaf-dark">FarmWise Dashboard</h1>
+        <p className="text-muted-foreground mt-1">Your smart farming assistant</p>
       </div>
-    </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        {/* Top row */}
+        <div className="md:col-span-4">
+          <FarmProfileCard />
+        </div>
+        <div className="md:col-span-8">
+          <WeatherForecast />
+        </div>
+        
+        {/* Middle row */}
+        <div className="md:col-span-6">
+          <CropHealthMonitor />
+        </div>
+        <div className="md:col-span-6">
+          <ResourceManagement />
+        </div>
+        
+        {/* Bottom row */}
+        <div className="md:col-span-7">
+          <MarketPrices />
+        </div>
+        <div className="md:col-span-5">
+          <CommunityForum />
+        </div>
+      </div>
+    </MainLayout>
   );
 };
 
